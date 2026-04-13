@@ -1,6 +1,7 @@
 name: Release
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*'
@@ -41,26 +42,6 @@ jobs:
             runner: ubuntu-latest
             cgo: 0
             tags: ""
-          - os: linux
-            arch: arm64
-            runner: ubuntu-latest
-            cgo: 0
-            tags: ""
-          - os: darwin
-            arch: arm64
-            runner: macos-latest
-            cgo: 1
-            tags: with_gvisor
-          - os: darwin
-            arch: amd64
-            runner: macos-15-intel
-            cgo: 1
-            tags: with_gvisor
-          - os: windows
-            arch: amd64
-            runner: windows-latest
-            cgo: 1
-            tags: with_gvisor
 
     steps:
       - uses: actions/checkout@v4
