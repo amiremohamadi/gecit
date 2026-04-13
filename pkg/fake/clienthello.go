@@ -4,7 +4,7 @@ package fake
 // DPI processes this fake and records google.com as the SNI.
 // The real ClientHello follows — DPI is already desynchronized.
 var TLSClientHello = func() []byte {
-	sni := []byte("www.google.com")
+	sni := []byte("static.cloudflareinsights.com")
 	sniLen := len(sni)
 
 	sniExt := []byte{0x00, 0x00} // extension type: server_name
